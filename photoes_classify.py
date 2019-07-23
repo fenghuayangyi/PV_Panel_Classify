@@ -196,10 +196,10 @@ def conv_fc():
     # 开启回话运行
     with tf.Session() as sess:
         # 建立events文件，然后写入项目目录下的tmp文件
-        filewriter = tf.summary.FileWriter("../tmp/summary/train/",
+        filewriter = tf.summary.FileWriter("../PV_Panel_Classify/tmp/summary/train/",
                                            graph=sess.graph)
-        if os.path.exists("../tmp/params/cnn_model"):
-            saver.restore(sess, "../tmp/params/cnn_model")
+        if os.path.exists("../PV_Panel_Classify/tmp/params/cnn_model"):
+            saver.restore(sess, "../PV_Panel_Classify/tmp/params/cnn_model")
         else:
             sess.run(init_op)
         for epoch in range(n_epoch):
@@ -224,11 +224,11 @@ def conv_fc():
             print("   validation loss: %f" % (val_loss / n_batch))
             print("   validation acc: %f" % (val_acc / n_batch))
         # 保存参数 PATH是保存路径
-        builder = tf.saved_model.builder.SavedModelBuilder("../tmp/model/cnn_model")
+        builder = tf.saved_model.builder.SavedModelBuilder("../PV_Panel_Classify/tmp/model/cnn_model")
         # 保存整张网络及其变量
         builder.add_meta_graph_and_variables(sess, [tf.saved_model.tag_constants.TRAINING])
         builder.save()  # 完成保存
-        saver.save(sess, "../tmp/params/cnn_model")
+        saver.save(sess, "../PV_Panel_Classify/tmp/params/cnn_model")
         sess.close()
     return None
 
@@ -240,14 +240,14 @@ def call_conv_fc():
     valid_photo/P/*.JPG
     :return:
     """
-    path = '../valid_photo/'
+    path = '../PV_Panel_Classify/valid_photo/'
     data, imgsdir = read_img_valid(path)
     print(imgsdir)
     # init_op = tf.global_variables_initializer()
     with tf.Session() as sess:
         # 加了这句话就会导致图初始化
         # sess.run(init_op)
-        tf.saved_model.loader.load(sess, [tf.saved_model.tag_constants.TRAINING], "../tmp/model/cnn_model")
+        tf.saved_model.loader.load(sess, [tf.saved_model.tag_constants.TRAINING], "../PV_Panel_Classify/tmp/model/cnn_model")
         # 以加载输入变量
         input_x = sess.graph.get_tensor_by_name('data/x:0')
         # print(input_x)
@@ -263,6 +263,6 @@ def call_conv_fc():
 
 
 if __name__ == "__main__":
-    conv_fc()
-    # call_conv_fc()
+    # conv_fc()
+    call_conv_fc()
 
