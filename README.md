@@ -1,5 +1,4 @@
 # PV_Panel_Classify
-基于无人机的光伏面板故障检测
 
 It is slightly simplified implementation of Convolutional Neural Networks for Image Classification
 Image Classification via CNN neural network implemented in tensorflow
