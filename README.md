@@ -17,4 +17,4 @@ Suggestion: Better to download Anaconda as it will take care of most of the othe
 * ./0510/P  # put training data(images)--normal pictures
 * ./0510_resize/N  # put resized training data(images)--abnormal pictures
 * ./0510_resize/P  # put resized training data(images)--normal pictures
-* ./valid  # put validation data(images)
+* ./valid_photo  # put validation data(images)
