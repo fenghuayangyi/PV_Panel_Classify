@@ -11,10 +11,10 @@ Image Classification via CNN neural network implemented in tensorflow
 Suggestion: Better to download Anaconda as it will take care of most of the other packages and easier to setup a virtual workspace to work with multiple versions of key packages like python, tensorflow etc.
 
 # Directory structure description
-*./resize_photoes.py   # resize image size to 100*100
-*./tmp  # Save the model and model parameters to view the training information using the tensorboard
-*./0510/N  # put training data(images)--abnormal pictures
-*./0510/P  # put training data(images)--normal pictures
-*./0510_resize/N  # put resized training data(images)--abnormal pictures
-*./0510_resize/P  # put resized training data(images)--normal pictures
-*./valid  # put validation data(images)
+* ./resize_photoes.py   # resize image size to 100*100
+* ./tmp  # Save the model and model parameters to view the training information using the tensorboard
+* ./0510/N  # put training data(images)--abnormal pictures
+* ./0510/P  # put training data(images)--normal pictures
+* ./0510_resize/N  # put resized training data(images)--abnormal pictures
+* ./0510_resize/P  # put resized training data(images)--normal pictures
+* ./valid  # put validation data(images)
