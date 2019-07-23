@@ -236,8 +236,7 @@ def conv_fc():
 def call_conv_fc():
     """
     调用训练好的模型对valid_photo目录下的图像进行分类,测试模型的准确性
-    valid_photo/N/*.JPG
-    valid_photo/P/*.JPG
+    valid_photo/*.JPG
     :return:
     """
     path = '../PV_Panel_Classify/valid_photo/'
